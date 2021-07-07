@@ -1,3 +1,8 @@
+
+The Vitex.Net REST API is fully described in an OpenAPI 3.0 [compliant document](swagger.json).
+OpenAPI is a standard specification for describing REST APIs. OpenAPI descriptions allow both humans and machines to discover the capabilities of an API without needing to first read documentation or understand the implementation.
+
+
 #### API list
 
 <details>
