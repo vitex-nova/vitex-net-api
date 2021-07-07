@@ -1,0 +1,516 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ViteNet",
+    "version": "v1"
+  },
+  "paths": {
+    "/Devices": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Retrieves a list of devices, registered in the organization",
+        "parameters": [
+          {
+            "name": "medium",
+            "in": "query",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/DeviceMedium"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Device list",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Device"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Device"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Device"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Devices have missing/invalid values",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Devices/values": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Retrieves a list of devices values",
+        "description": "Awesomeness!",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Initial time of the period for which events will be retrieved.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "123"
+          },
+          {
+            "name": "till",
+            "in": "query",
+            "description": "End time of the period for which events will be retrieved.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "123"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Location id of the specified device for which events will be retrieved.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "serialNo",
+            "in": "query",
+            "description": "Serial number of the specified device for which events will be retrieved.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "medium",
+            "in": "query",
+            "description": "Medium filter",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/DeviceMedium"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Device values list",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceValue"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceValue"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceValue"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Devices have missing/invalid values",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Devices/events": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Retrieves a list of devices events",
+        "description": "Awesomeness!",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Initial time of the period for which events will be retrieved.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "123"
+          },
+          {
+            "name": "till",
+            "in": "query",
+            "description": "End time of the period for which events will be retrieved.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "123"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Location id of the specified device for which events will be retrieved.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "serialNo",
+            "in": "query",
+            "description": "Serial number of the specified device for which events will be retrieved.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "medium",
+            "in": "query",
+            "description": "Medium filter",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/DeviceMedium"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Device events list",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceEvent"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceEvent"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceEvent"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Devices have missing/invalid values",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Device": {
+        "type": "object",
+        "properties": {
+          "locationId": {
+            "type": "integer",
+            "description": "Unique device number, registered for organization in system\r\nNeed to identify device, because serial number is not unique",
+            "format": "int32",
+            "nullable": true
+          },
+          "serialNo": {
+            "type": "string",
+            "description": "Serial number",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "description": "Physical address where device is mounted",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "description": "Device model",
+            "nullable": true
+          },
+          "medium": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeviceMedium"
+              }
+            ],
+            "description": "Device specialization"
+          },
+          "installTime": {
+            "type": "string",
+            "description": "Device installation time",
+            "format": "date-time"
+          },
+          "readTime": {
+            "type": "string",
+            "description": "Device last read time",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceEvent": {
+        "type": "object",
+        "properties": {
+          "locationId": {
+            "type": "integer",
+            "description": "Unique device number, registered for organization in system\r\nNeed to identify device, because serial number is not unique",
+            "format": "int32",
+            "nullable": true
+          },
+          "serialNo": {
+            "type": "string",
+            "description": "Serial number",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "description": "Time when the event happened",
+            "format": "date-time"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeviceEventType"
+              }
+            ],
+            "description": "Event type"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Device event record"
+      },
+      "DeviceEventType": {
+        "enum": [
+          "LowBattery",
+          "ProcessorReset",
+          "SelfDiagnostic",
+          "OpticDetectorDefects",
+          "FlowSignalization",
+          "CounterFlowDetection",
+          "StrongLightingDetection",
+          "ExternalMagneticFieldDetection"
+        ],
+        "type": "string",
+        "description": "Error types<p>Members:</p><ul><li><i>LowBattery</i> - Low battery</li><li><i>ProcessorReset</i> - Processor reset</li><li><i>SelfDiagnostic</i> - Self-diagnostics (detection of missed reading)</li><li><i>OpticDetectorDefects</i> - Optic detector defects</li><li><i>FlowSignalization</i> - Flow signalisation min/max</li><li><i>CounterFlowDetection</i> - Detection of counter flow</li><li><i>StrongLightingDetection</i> - Detection of strong lighting</li><li><i>ExternalMagneticFieldDetection</i> - Detection of external magnetic field</li></ul>"
+      },
+      "DeviceMedium": {
+        "enum": [
+          "Other",
+          "Heat",
+          "HotWater",
+          "Water"
+        ],
+        "type": "string",
+        "description": "Device specialization<p>Members:</p><ul><li><i>Other</i> - Other</li><li><i>Heat</i> - Heat</li><li><i>HotWater</i> - Hot water</li><li><i>Water</i> - Water</li></ul>"
+      },
+      "DeviceValue": {
+        "type": "object",
+        "properties": {
+          "locationId": {
+            "type": "integer",
+            "description": "Unique device number, registered for organization in system\r\nNeed to identify device, because serial number is not unique",
+            "format": "int32",
+            "nullable": true
+          },
+          "serialNo": {
+            "type": "string",
+            "description": "Serial number",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "description": "Read value time",
+            "format": "date-time"
+          },
+          "value": {
+            "type": "number",
+            "description": "Value",
+            "format": "double"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ValueType"
+              }
+            ],
+            "description": "Value type"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Device value record"
+      },
+      "ValueType": {
+        "enum": [
+          "Volume",
+          "ValveOpenValue"
+        ],
+        "type": "string",
+        "description": "Value type<p>Members:</p><ul><li><i>Volume</i> - Volume m³</li><li><i>ValveOpenValue</i> - Valve open value 0-100 (0 - fully closed, 100 - fully opened)</li></ul>"
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
