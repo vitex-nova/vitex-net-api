@@ -78,7 +78,7 @@ The Vitex.Net REST API.
 
 > ```javascript
 >  curl -X 'POST' \
->  --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTY5MTY1OTgwOCwiZXhwIjoxNjkxNjYzNDA4fQ.qTRFRswXpI6gAUjWD6oRsXfTilZhK7DLhxXp89tSLD4'
+>  --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaGdsdfddddslRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTY5MTY1OTgwOCwiZXhwIjoxNjkxNjYzNDA4fQ.qTRFRswXpI6gAUjWD6oRsXfTilZhK7DLhxXp89tSLD4'
 >  -H 'Content-Type: application/json'
 >  -d '{ "date": "2023-07-01" }'
 >  'https://automate.in.ua/api/v1/company/getDevices' \
@@ -107,7 +107,7 @@ The Vitex.Net REST API.
 ##### OK Responce example
 > ```json
 > {
->    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTY5MTY1OTgwOCwiZXhwIjoxNjkxNjYzNDA4fQ.qTRFRswXpI6gAUjWD6oRsXfTilZhK7DLhxXp89tSLD4"
+>    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUrsfdasdassImlhdCI6MTY5MTY1OTgwOCwiZXhwIjoxNjkxNjYzNDA4fQ.qTRFRswXpI6gAUjWD6oRsXfTilZhK7DLhxXp89tSLD4"
 > }
 > ```
 
